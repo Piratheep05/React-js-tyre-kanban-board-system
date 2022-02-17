@@ -1,0 +1,18 @@
+.card{
+  align-items: center;
+  height: 0px;
+
+}
+.tag {
+ 
+margin-left: -40px;
+margin-top: 70px;
+width: 200%;
+}
+.btn{
+  margin-left: 70px ;
+  
+}
+.modal-content{
+  width: 120%;
+}

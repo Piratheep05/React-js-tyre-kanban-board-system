@@ -1,0 +1,14 @@
+.head {
+    width: 400px;
+    margin-top: 40px;
+    margin-left: 100px;
+    
+  }
+  .btn{
+    margin-left: 100px;
+  }
+  .tag{
+    align-items: center;
+    max-width: 50px;
+  }
+  
