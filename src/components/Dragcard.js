@@ -1,31 +1,26 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import Comp from "./Comp";
 import "./Dragcard.css";
-// import uuid from "uuid/v4";
-// import uuidv4 from 'uuid/v4'
-//import uuid from 'uuid/package.json'
-// import * as uuid from 'uuid';
-//import { v4 as uuidv4 } from "uuid";
-//import Card1 from "./components/Card1";
+
 
 const { v4: uuid } = require("uuid");
 
 const itemsFromBackend = [
-  { id: uuid(), content: <Comp name="PRESS-120" />, time: 7.0 },
-  { id: uuid(), content: <Comp name="PRESS-130" />, time: 7.0 },
-  { id: uuid(), content: <Comp name="PRESS-140" />, time: 7.0 },
-  { id: uuid(), content: <Comp name="PRESS-150" />, time: 7.0 },
-  { id: uuid(), content: <Comp name="PRESS-160" />, time: 7.0 },
-  { id: uuid(), content: <Comp name="PRESS-170" />, time: 7.0 },
+  // { id: uuid(), content: <Comp name='PRESS-120' />, time: 7.00 },
+  // { id: uuid(), content: <Comp name='PRESS-130' />, time: 7.00 },
+  // { id: uuid(), content: <Comp name='PRESS-140' />, time: 7.00 },
+  // { id: uuid(), content: <Comp name='PRESS-150' />, time: 7.00 },
+  // { id: uuid(), content: <Comp name='PRESS-160' />, time: 7.00 },
+  // { id: uuid(), content: <Comp name='PRESS-170' />, time: 7.00 },
 ];
 
 const columnsFromBackend = (itemsFromBackend) => {
   return {
     [uuid()]: {
-      name: 7.0,
+      name: 7.00,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 7.0;
+        return item.time === 7.00;
       }),
     },
     [uuid()]: {
@@ -35,9 +30,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 7.1,
+      name: 7.10,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 7.1;
+        return item.time === 7.10;
       }),
     },
     [uuid()]: {
@@ -47,9 +42,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 7.2,
+      name: 7.20,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 7.2;
+        return item.time === 7.20;
       }),
     },
     [uuid()]: {
@@ -59,9 +54,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 7.3,
+      name: 7.30,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 7.3;
+        return item.time === 7.30;
       }),
     },
     [uuid()]: {
@@ -71,9 +66,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 7.4,
+      name: 7.40,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 7.4;
+        return item.time === 7.40;
       }),
     },
     [uuid()]: {
@@ -83,9 +78,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 7.5,
+      name: 7.50,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 7.5;
+        return item.time === 7.50;
       }),
     },
     [uuid()]: {
@@ -95,9 +90,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 8.0,
+      name: 8.00,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 8.0;
+        return item.time === 8.00;
       }),
     },
     [uuid()]: {
@@ -107,9 +102,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 8.1,
+      name: 8.10,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 8.1;
+        return item.time === 8.10;
       }),
     },
     [uuid()]: {
@@ -119,9 +114,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 8.2,
+      name: 8.20,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 8.2;
+        return item.time === 8.20;
       }),
     },
     [uuid()]: {
@@ -131,9 +126,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 8.3,
+      name: 8.30,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 8.3;
+        return item.time === 8.30;
       }),
     },
     [uuid()]: {
@@ -143,9 +138,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 8.4,
+      name: 8.40,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 8.4;
+        return item.time === 8.40;
       }),
     },
     [uuid()]: {
@@ -155,9 +150,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 8.5,
+      name: 8.50,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 8.5;
+        return item.time === 8.50;
       }),
     },
     [uuid()]: {
@@ -167,9 +162,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 9.0,
+      name: 9.00,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 9.0;
+        return item.time === 9.00;
       }),
     },
     [uuid()]: {
@@ -179,9 +174,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 9.1,
+      name: 9.10,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 9.1;
+        return item.time === 9.10;
       }),
     },
     [uuid()]: {
@@ -191,9 +186,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 9.2,
+      name: 9.20,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 9.2;
+        return item.time === 9.20;
       }),
     },
     [uuid()]: {
@@ -203,9 +198,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 9.3,
+      name: 9.30,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 9.3;
+        return item.time === 9.30;
       }),
     },
     [uuid()]: {
@@ -215,9 +210,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 9.4,
+      name: 9.40,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 9.4;
+        return item.time === 9.40;
       }),
     },
     [uuid()]: {
@@ -227,9 +222,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 9.5,
+      name: 9.50,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 9.5;
+        return item.time === 9.50;
       }),
     },
     [uuid()]: {
@@ -241,7 +236,7 @@ const columnsFromBackend = (itemsFromBackend) => {
     [uuid()]: {
       name: 10.0,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 10.0;
+        return item.time === 10.00;
       }),
     },
     [uuid()]: {
@@ -251,9 +246,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 10.1,
+      name: 10.10,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 10.1;
+        return item.time === 10.10;
       }),
     },
     [uuid()]: {
@@ -263,9 +258,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 10.2,
+      name: 10.20,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 10.2;
+        return item.time === 10.20;
       }),
     },
     [uuid()]: {
@@ -275,9 +270,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 10.3,
+      name: 10.30,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 10.3;
+        return item.time === 10.30;
       }),
     },
     [uuid()]: {
@@ -287,9 +282,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 10.4,
+      name: 10.40,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 10.4;
+        return item.time === 10.40;
       }),
     },
     [uuid()]: {
@@ -299,9 +294,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 10.5,
+      name: 10.50,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 10.5;
+        return item.time === 10.50;
       }),
     },
     [uuid()]: {
@@ -311,9 +306,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 11.0,
+      name: 11.00,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 11.0;
+        return item.time === 11.00;
       }),
     },
     [uuid()]: {
@@ -323,9 +318,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 11.1,
+      name: 11.10,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 11.1;
+        return item.time === 11.10;
       }),
     },
     [uuid()]: {
@@ -335,9 +330,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 11.2,
+      name: 11.20,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 11.2;
+        return item.time === 11.20;
       }),
     },
     [uuid()]: {
@@ -347,9 +342,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 11.3,
+      name: 11.30,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 11.3;
+        return item.time === 11.30;
       }),
     },
     [uuid()]: {
@@ -359,9 +354,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 11.4,
+      name: 11.40,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 11.4;
+        return item.time === 11.40;
       }),
     },
     [uuid()]: {
@@ -371,9 +366,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 11.5,
+      name: 11.50,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 11.5;
+        return item.time === 11.50;
       }),
     },
     [uuid()]: {
@@ -383,9 +378,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 12.0,
+      name: 12.00,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 12.0;
+        return item.time === 12.00;
       }),
     },
     [uuid()]: {
@@ -395,9 +390,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 12.1,
+      name: 12.10,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 12.1;
+        return item.time === 12.10;
       }),
     },
     [uuid()]: {
@@ -407,9 +402,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 12.2,
+      name: 12.20,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 12.2;
+        return item.time === 12.20;
       }),
     },
     [uuid()]: {
@@ -419,9 +414,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 12.3,
+      name: 12.30,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 12.3;
+        return item.time === 12.30;
       }),
     },
     [uuid()]: {
@@ -431,9 +426,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 12.4,
+      name: 12.40,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 12.4;
+        return item.time === 12.40;
       }),
     },
     [uuid()]: {
@@ -443,9 +438,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 12.5,
+      name: 12.50,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 12.5;
+        return item.time === 12.50;
       }),
     },
     [uuid()]: {
@@ -455,9 +450,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 1.0,
+      name: 1.00,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 1.0;
+        return item.time === 1.00;
       }),
     },
     [uuid()]: {
@@ -467,9 +462,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 1.1,
+      name: 1.10,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 1.1;
+        return item.time === 1.10;
       }),
     },
     [uuid()]: {
@@ -479,9 +474,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 1.2,
+      name: 1.20,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 1.2;
+        return item.time === 1.20;
       }),
     },
     [uuid()]: {
@@ -491,9 +486,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 1.3,
+      name: 1.30,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 1.3;
+        return item.time === 1.30;
       }),
     },
     [uuid()]: {
@@ -503,9 +498,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 1.4,
+      name: 1.40,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 1.4;
+        return item.time === 1.40;
       }),
     },
     [uuid()]: {
@@ -515,9 +510,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 1.5,
+      name: 1.50,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 1.5;
+        return item.time === 1.50;
       }),
     },
     [uuid()]: {
@@ -527,9 +522,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 2.0,
+      name: 2.00,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 2.0;
+        return item.time === 2.00;
       }),
     },
     [uuid()]: {
@@ -539,9 +534,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 2.1,
+      name: 2.10,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 2.1;
+        return item.time === 2.10;
       }),
     },
     [uuid()]: {
@@ -551,9 +546,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 2.2,
+      name: 2.20,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 2.2;
+        return item.time === 2.20;
       }),
     },
     [uuid()]: {
@@ -563,9 +558,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 2.3,
+      name: 2.30,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 2.3;
+        return item.time === 2.30;
       }),
     },
     [uuid()]: {
@@ -575,9 +570,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 2.4,
+      name: 2.40,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 2.4;
+        return item.time === 2.40;
       }),
     },
     [uuid()]: {
@@ -587,9 +582,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 2.5,
+      name: 2.50,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 2.5;
+        return item.time === 2.50;
       }),
     },
     [uuid()]: {
@@ -599,9 +594,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 3.0,
+      name: 3.00,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 3.0;
+        return item.time === 3.00;
       }),
     },
     [uuid()]: {
@@ -611,9 +606,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 3.1,
+      name: 3.10,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 3.1;
+        return item.time === 3.10;
       }),
     },
     [uuid()]: {
@@ -623,9 +618,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 3.2,
+      name: 3.20,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 3.2;
+        return item.time === 3.20;
       }),
     },
     [uuid()]: {
@@ -635,9 +630,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 3.3,
+      name: 3.30,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 9.3;
+        return item.time === 9.30;
       }),
     },
     [uuid()]: {
@@ -647,9 +642,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 3.4,
+      name: 3.40,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 3.4;
+        return item.time === 3.40;
       }),
     },
     [uuid()]: {
@@ -659,9 +654,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 3.5,
+      name: 3.50,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 3.5;
+        return item.time === 3.50;
       }),
     },
     [uuid()]: {
@@ -671,9 +666,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 4.0,
+      name: 4.00,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 4.0;
+        return item.time === 4.00;
       }),
     },
     [uuid()]: {
@@ -683,7 +678,7 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 4.1,
+      name: 4.10,
       items: itemsFromBackend.filter((item) => {
         return item.time === 4.1;
       }),
@@ -695,9 +690,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 4.2,
+      name: 4.20,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 4.2;
+        return item.time === 4.20;
       }),
     },
     [uuid()]: {
@@ -707,9 +702,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 4.3,
+      name: 4.30,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 4.3;
+        return item.time === 4.30;
       }),
     },
     [uuid()]: {
@@ -719,9 +714,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 4.4,
+      name: 4.40,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 4.4;
+        return item.time === 4.40;
       }),
     },
     [uuid()]: {
@@ -731,9 +726,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 4.5,
+      name: 4.50,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 4.5;
+        return item.time === 4.50;
       }),
     },
     [uuid()]: {
@@ -743,9 +738,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 5.0,
+      name: 5.00,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 5.0;
+        return item.time === 5.00;
       }),
     },
     [uuid()]: {
@@ -755,9 +750,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 5.1,
+      name: 5.10,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 5.1;
+        return item.time === 5.10;
       }),
     },
     [uuid()]: {
@@ -767,9 +762,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 5.2,
+      name: 5.20,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 5.2;
+        return item.time === 5.20;
       }),
     },
     [uuid()]: {
@@ -779,9 +774,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 5.3,
+      name: 5.30,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 5.3;
+        return item.time === 5.30;
       }),
     },
     [uuid()]: {
@@ -791,9 +786,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 5.4,
+      name: 5.40,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 5.4;
+        return item.time === 5.40;
       }),
     },
     [uuid()]: {
@@ -803,9 +798,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 5.5,
+      name: 5.50,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 5.5;
+        return item.time === 5.50;
       }),
     },
     [uuid()]: {
@@ -815,9 +810,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 6.0,
+      name: 6.00,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 6.0;
+        return item.time === 6.00;
       }),
     },
     [uuid()]: {
@@ -827,9 +822,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 6.1,
+      name: 6.10,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 6.1;
+        return item.time === 6.10;
       }),
     },
     [uuid()]: {
@@ -839,9 +834,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 6.2,
+      name: 6.20,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 6.2;
+        return item.time === 6.20;
       }),
     },
     [uuid()]: {
@@ -851,9 +846,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 6.3,
+      name: 6.30,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 6.3;
+        return item.time === 6.30;
       }),
     },
     [uuid()]: {
@@ -863,9 +858,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 6.4,
+      name: 6.40,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 6.4;
+        return item.time === 6.40;
       }),
     },
     [uuid()]: {
@@ -875,9 +870,9 @@ const columnsFromBackend = (itemsFromBackend) => {
       }),
     },
     [uuid()]: {
-      name: 6.5,
+      name: 6.50,
       items: itemsFromBackend.filter((item) => {
-        return item.time === 6.5;
+        return item.time === 6.50;
       }),
     },
     [uuid()]: {
@@ -894,35 +889,51 @@ const columnsFromBackend = (itemsFromBackend) => {
   };
 };
 
-function Dragcard({ starttime }) {
-  const [backend, setBackend] = useState([
-    { id: uuid(), content: <Comp name="PRESS-120" />, time: 7.0 },
-    { id: uuid(), content: <Comp name="PRESS-130" />, time: 7.0 },
-    { id: uuid(), content: <Comp name="PRESS-140" />, time: 7.2 },
-    { id: uuid(), content: <Comp name="PRESS-150" />, time: 7.15 },
-    { id: uuid(), content: <Comp name="PRESS-160" />, time: 7.05 },
-    { id: uuid(), content: <Comp name="PRESS-170" />, time: 7.05 },
-  ]);
-  const [columns, setColumns] = useState(columnsFromBackend(backend));
+function Dragcard(props) {
+  console.log("vvvvvv3" , props.state)
+  
+  const [backend, setBackend] = useState([]);
+  const [columns, setColumns] = useState([]);
+  // const [time1,setTime1]=useState("");
 
-  console.log("h", starttime);
+
+  useEffect(() => {
+      setBackenddata()
+
+  }, [props.state])
+
+// press common card create 
+  const setBackenddata = () =>{
+
+    let array = []
+    for( const carddeatail of props.state){
+      console.log("11111", carddeatail)
+      const object1 = 
+        { id: uuid(), content: <Comp name= {carddeatail.name} state1={carddeatail} trigerdragcard={props.trigerdragcard}/>, time:carddeatail.starttime }
+
+      array = [...array,object1]
+    }
+
+    console.log("1111111 2",array)
+    setBackend(array)
+    setColumns(columnsFromBackend(array))
+
+  }
+  console.log("111111 3" ,columns)
+
 
   const onDragEnd = (result, columns, setColumns) => {
     console.log(itemsFromBackend);
     if (!result.destination) return;
     const { source, destination } = result;
 
-
     if (source.droppableId !== destination.droppableId) {
       const sourceColumn = columns[source.droppableId];
-      
+
       const destColumn = columns[destination.droppableId];
       const sourceItems = [...sourceColumn.items];
-      console.log("if")
-      // console.log(source, "123");
-      // console.log(destination, "123");
-
-      // console.log( columns, "123");
+      console.log("if");
+      
 
       const destItems = [...destColumn.items];
 
@@ -932,6 +943,8 @@ function Dragcard({ starttime }) {
         ...removed,
         time: columns[destination.droppableId].name,
       };
+
+      
 
       destItems.splice(destination.index, 0, removed);
       console.log(removed, "456");
@@ -946,7 +959,7 @@ function Dragcard({ starttime }) {
       console.log(selecttask, "amma");
 
       console.log(columns[destination.droppableId]);
-      // setDest(columns[destination.droppableId].name)
+     
 
       // dest state
       setColumns({
@@ -960,18 +973,19 @@ function Dragcard({ starttime }) {
           items: destItems,
         },
       });
+      
+      Putpressdetail(removed)
+
     } else {
       console.log("else");
       const column = columns[source.droppableId];
       const copiedItems = [...column.items];
-      // console.log("hello column " ,column )
-      // console.log("hello copiedItems" ,copiedItems)
-      const [removed] = copiedItems.splice(source.index,1);
-      console.log("hello removed" ,[removed])
+      
+      const [removed] = copiedItems.splice(source.index, 1);
+      console.log("hello removed", [removed]);
       copiedItems.splice(destination.index, 0, removed);
-      // console.log("hello copiedItems" ,copiedItems)
-      // console.log("hello column " ,column )
-     
+      
+
       setColumns({
         ...columns,
         [source.droppableId]: {
@@ -980,9 +994,52 @@ function Dragcard({ starttime }) {
           items: copiedItems,
         },
       });
+      
     }
+    // props.trigerdragcard();
   };
-  console.log(111111111111111111111, backend);
+
+  console.log("11111  7",props)
+
+  const Putpressdetail = async ( card) => {
+    
+
+    try {
+      
+      const body = {
+        
+
+        pid1:card.content.props.state1.pid1,
+        pid2:card.content.props.state1.pid2,
+        pid3:card.content.props.state1.pid3,
+        pid4:card.content.props.state1.pid4,
+        starttime:card.time,
+        pressid :card.content.props.state1.pressid
+      }
+
+        const add6 = await fetch(`http://localhost:5433/pressAlldetailRouter/updatecarddetail`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify( body),
+
+        }).then((response) => {
+          response.json().then((res) => {
+            console.log(res,"pramoth")
+
+          })
+          
+        })
+        .catch((e)=>{
+          console.log(e)
+        })
+        console.log("11111 34", )
+
+      
+    } catch (err) {
+      console.log(err)
+    }
+    
+  }
   return (
     <>
       <div className="head">
@@ -1051,7 +1108,8 @@ function Dragcard({ starttime }) {
                                         color: "white",
                                         ...provided.draggableProps.style,
                                       }}
-                                    >
+                                    >  
+                                    
                                       {item.time}
                                       {item.content}
                                     </div>

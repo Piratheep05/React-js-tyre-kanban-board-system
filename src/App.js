@@ -10,86 +10,49 @@ import Table1 from "./components/Table1";
 import Dragcard from "./components/Dragcard";
 import Draggable1 from "./components/Draggable1";
 import Card1 from "./components/Card1";
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 
 function App() {
   const [isShown, setIsShown] = useState(false);
+
+  const [tirelabeldetail, setTirelabeldetail] = useState([
+    
+    
+  ]);
+
+  // service call 
+  useEffect(() => {
+
+    console.log("vvvvvv 1", tirelabeldetail);
+    fetchTirelableDetails();
+  
+  }, []);
+
+  const fetchTirelableDetails = async()=>{
+     // need to gettiredetails from database 
+
+     console.log("111111 5")
+     
+      try {
+        const pressinfo1 = await fetch(
+          `http://localhost:5433/pressAlldetailRouter/getpressdetail`
+        );
+
+        const fetchData5 = await pressinfo1.json();
+        setTirelabeldetail(fetchData5.data.data);
+
+         } catch (err) {
+        console.error(err.message);
+      }
+  
+  }
   return (
     
-     
       <div className="ui">
-        <Dragcard />{" "}
-        {/* <Card1/> */}
+        <Dragcard state={tirelabeldetail}
+            trigerdragcard={fetchTirelableDetails}
+         />
       </div>
-    
-    
-  //   <div className="App">
-  //   <button
-  //     onMouseEnter={() => setIsShown(true)}
-  //     onMouseLeave={() => setIsShown(false)}>
-  //     Hover over me!
-  //   </button>
-  //   {isShown && (
-  //     <div className="tire">
-  //       <Card1/>
-  //     </div>
-  // //   )}
-  // </div>
-
-
-
-    // <Draggable>
-    //     <div className="drag-box">
-    //     <h5> label</h5>
-
-    //     </div>
-
-    //   </Draggable>
-    //   // <div>
-
-    //   <Table1/>
-    // </div>
-
-    // const DraggableCard = ({ children }) => {
-    //   const cardRef = useRef(null);
-    //   useDraggable(cardRef);
-
-    //   return (
-    //     <div className="card" ref={cardRef}>
-    //       {children}
-    //     </div>
-    //   );
-    // };
-
-    // function App() {
-    //   return (
-    //     <div className="container">
-    //       <DraggableCard>Card 1</DraggableCard>
-    //       <DraggableCard>Card 2</DraggableCard>
-    //       <DraggableCard>Card 3</DraggableCard>
-    //       <DraggableCard>Card 4</DraggableCard>
-    //       <DraggableCard>Card 5</DraggableCard>
-    //       <DraggableCard>Card 6</DraggableCard>
-    //     </div>
-
-    //     <div className='App'>
-    //      <DraggableCard bgColor="#FF9300"/>
-    // <DraggableCard  bgColor="blue"/>
-
-    //     </div>
-
-    //   )
-    // }
-
-    // const DraggableCard = ({ text , bgColor}) => {
-    //   return (
-    //       <Draggable>
-    //        <Card style={{ width: "20%", backgroundColor: bgColor,color:"white"}}>
-    //       {/* <Button variant="text"> Buy </Button> */}
-    //       {/* <Typography variant="h6"> {text} </Typography> */}
-    //       <Card1/>
-    //        </Card>
-    //   </Draggable>
   );
 }
 

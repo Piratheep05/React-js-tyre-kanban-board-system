@@ -22,96 +22,18 @@ function Comp(props) {
   const [isShown, setIsShown] = useState(false);
   const [show, setShow] = useState(false);
   const [selectedtirelabelobj, setSelectedtirelabelobj] = useState({});
-  const [tirelabeldetail, setTirelabeldetail] = useState([
-    {
-      id: 120,
-      name: "PRESS-120",
-      starttime: 7.15,
-      outtime: 8.45,
-      endtime: 5.25,
-      loadtime: 4.05,
-      pid1: 9.0,
-      pid2: 10.0,
-      pid3: 11.0,
-      pid4: 12.0,
-    },
-    {
-      id: 130,
-      name: "PRESS-130",
-      starttime: 10.15,
-      outtime: 1.05,
-      endtime: 5.0,
-      loadtime: 4.0,
-      pid1: 8.0,
-      pid2: 7.0,
-      pid3: 6.0,
-      pid4: 5.0,
-    },
-    {
-      id: 140,
-      name: "PRESS-140",
-      starttime: 7.0,
-      outtime: 8.0,
-      endtime: 5.0,
-      loadtime: 4.0,
-      pid1: 9.0,
-      pid2: 10.0,
-      pid3: 11.0,
-      pid4: 12.0,
-    },
-    {
-      id: 150,
-      name: "PRESS-150",
-      starttime: 7.0,
-      outtime: 8.0,
-      endtime: 5.0,
-      loadtime: 4.0,
-      pid1: 9.0,
-      pid2: 10.0,
-      pid3: 11.0,
-      pid4: 12.0,
-    },
-    {
-      id: 160,
-      name: "PRESS-160",
-      starttime: 7.0,
-      outtime: 8.0,
-      endtime: 5.0,
-      loadtime: 4.0,
-      pid1: 9.0,
-      pid2: 10.0,
-      pid3: 11.0,
-      pid4: 12.0,
-    },
-    {
-      id: 170,
-      name: "PRESS-170",
-      starttime: 7.0,
-      outtime: 8.0,
-      endtime: 5.0,
-      loadtime: 4.0,
-      pid1: 9.0,
-      pid2: 10.0,
-      pid3: 11.0,
-      pid4: 12.0,
-    },
-  ]);
+ 
 
-  // service call 
-  useEffect(() => {
-    console.log("hhhhh 1", tirelabeldetail);
-  }, []);
-
-  console.log("hhhhh 2", tirelabeldetail);
+  console.log("vvvvvvvv 2",props.state1);
 
   // update value store
   const handleupdateclose = (updatedata, name) => {
     console.log(updatedata, "heerthana");
     console.log(name);
-    let index = tirelabeldetail.findIndex((update) => {
+    let index = props.state1.findIndex((update) => {
       return update.name.trim() === name.trim();
     });
-    tirelabeldetail[index] = updatedata;
+    props.state1[index] = updatedata;
     setSelectedtirelabelobj({});
     setShow(false);
   };
@@ -119,54 +41,31 @@ function Comp(props) {
   const handleClose = () => setShow(false);
 
   const handleShow = (name) => {
-    let selecttire = {};
+    // let selecttire = {};
     setShow(false);
-    console.log(name);
-
-    for (let tire of tirelabeldetail) {
-      console.log(tire.name, name);
-      console.log(typeof tire.name, typeof name);
-      console.log(tire.name.trim() === name.trim());
-      if (tire.name.trim() === name.trim()) {
-        console.log("ttt");
-        selecttire = { ...tire };
-      }
-    }
-
-    console.log(selecttire);
-
-    setSelectedtirelabelobj(selecttire);
+    
+    setSelectedtirelabelobj(props.state1);
 
     // need to call service by name
 
     setShow(true);
   };
   const handlehovershow = (name) => {
-    let selecttire = {};
-    console.log(name);
+    console.log("111111 81",selectedtirelabelobj)
 
-    for (let tire of tirelabeldetail) {
-      console.log(tire.name, name);
-      console.log(typeof tire.name, typeof name);
-      console.log(tire.name.trim() === name.trim());
-      if (tire.name.trim() === name.trim()) {
-        console.log("ttt");
-        selecttire = { ...tire };
-      }
-    }
-
-    console.log(selecttire);
-
-    setSelectedtirelabelobj(selecttire);
-
-    // need to call service by name
-
-    // setShow(true);
+    // setShow(false);
+    setIsShown(false);
+    
+    setSelectedtirelabelobj(props.state1);
+    setIsShown(true);
   };
+
+ 
 
   return (
     <>
       <div className="All">
+        
         <div>
           <div className="btn">
             <Button variant="primary" onClick={() => handleShow(props.name)}>
@@ -185,6 +84,8 @@ function Comp(props) {
                 <Card1
                   data={selectedtirelabelobj}
                   handleupdateclose={handleupdateclose}
+                  trigerdragcard={props.trigerdragcard}
+                  // data1={pressid}
                 />
               </Modal.Body>
             </div>
@@ -193,32 +94,17 @@ function Comp(props) {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              {/* <Button variant="primary" onClick={handleClose}>
-              Save Changes
-            </Button> */}
+              
             </Modal.Footer>
           </Modal>
         </div>
-        {/* <ReactHover
-        options={optionsCursorTrueWithMargin}
-        onMouseEnter={() => handleShow(props.name)}
-        onHide={handleClose}
-      >
-        {props.name}
-        <Hover type="hover" onMouseEnter={() => handlehovershow(props.name)}>
-          <Card1
-            data={selectedtirelabelobj}
-            handleupdateclose={handleupdateclose}
-          />
-        </Hover>
-
-        <Trigger type="trigger">
-          <h2 > {props.name}</h2>
-        </Trigger>
-      </ReactHover> */}
+        
       </div>
 
+      {/* // hover function start  */}
+
       <div className="App">
+        <div className="pressname">
         <button
           onMouseEnter={() => {
             handlehovershow(props.name);
@@ -228,11 +114,13 @@ function Comp(props) {
         >
           {props.name}
         </button>
+        </div>
         {isShown && (
           <div className="card">
+           { console.log("1111 6" ,selectedtirelabelobj )}
             <Card1
               data={selectedtirelabelobj}
-              handleupdateclose={handleupdateclose}
+              handleupdateclose={handleupdateclose} 
             />
           </div>
         )}
