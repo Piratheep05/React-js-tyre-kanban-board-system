@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import "./Card1.css";
 
 
+
 const Card1 = (props) => {
   const {
     pressid,
@@ -84,12 +85,6 @@ const Card1 = (props) => {
   const [count, set] = useState([]);
   const [moldstore, setMoldstore] = useState([]);
 
-  // post tirecode usestates
-
-  // const [posttirecode1,setPosttirecode1] = useState("")
-  // const [posttirecode2,setPosttirecode2] = useState("")
-  // const [posttirecode3,setPosttirecode3] = useState("")
-  // const [posttirecode4,setPosttirecode4] = useState("")
 
   // get curringtime states
   const [getcurringtime11, setGetcurringtime11] = useState("");
@@ -125,14 +120,13 @@ const Card1 = (props) => {
   const[finaltime3,setFinaltime3] = useState("");
   const[finaltime4,setFinaltime4] = useState("");
 
+  // maxtotalhour state
+  // const[maxtotalhour1,setMaxtotalhour1] = useState("");
+  // const[maxtotalhour2,setMaxtotalhour2] = useState("");
+  // const[maxtotalhour3,setMaxtotalhour3] = useState("");
+  // const[maxtotalhour4,setMaxtotalhour4] = useState("");
 
-
-  //total curring time
-  // const[out1,setOut1]=useState("");
-  // const[out2,setOut1]=useState("");
-  // const[out3,setOut1]=useState("");
-  // const[out4,setOut1]=useState("");
-
+  
   const save = (e) => {
     e.preventDefault();
     setSelecb([...state.starttime, selecb]);
@@ -359,7 +353,7 @@ const Card1 = (props) => {
         const getcurringtime11 = fetchData5.data.data[0].sizebasicid
         const getcurringtime12 = fetchData5.data.data[0].lugtypeid
         const getcurringtime13 = fetchData5.data.data[0].tcat
-        const getcurringtime14 = fetchData5.data.data[0].tiretypeid
+        
 
        
         console.log("kkk1", fetchData5.data.data[0].sizebasicid);
@@ -367,7 +361,7 @@ const Card1 = (props) => {
         console.log("kkk2", fetchData5.data.data[0].lugtypeid);
         // setGetcurringtime13(fetchData5.data.data[0].tcat);
         console.log("kkk3", fetchData5.data.data[0].tcat);
-        console.log("kkk4", fetchData5.data.data[0].tiretypeid);
+        
 
         if (getcurringtime11 && getcurringtime12 && getcurringtime13 && state.pid1) {
           const curringinfo1 = await fetch(
@@ -413,7 +407,7 @@ const Card1 = (props) => {
 
       if ( state.pid2 && getcurringtime21 && getcurringtime22 && getcurringtime23  ) {
         const curringinfo2 = await fetch(
-     `http://localhost:5433/pressAlldetailRouter/getcurringfinaltime/${state.pid2}/${getcurringtime21}/${getcurringtime22}/${getcurringtime23}`
+     `http://localhost:5433/pressAlldetailRouter/getcurringfinaltime/${state.pid2}/${getcurringtime22}/${getcurringtime23}/${getcurringtime21}`
    );
         
       const fetchData22 = await curringinfo2.json();
@@ -423,8 +417,8 @@ const Card1 = (props) => {
 
    setInsidetime2(fetchData22.data.data[0].insidetime);
    setOuttime2(fetchData22.data.data[0].outsidetime);
-   console.log("hhhhhhhh insidetime",fetchData22.data.data[0].insidetime);
-   console.log("hhhhhhhh outsidetime",fetchData22.data.data[0].outsidetime);
+   console.log("uuuu",fetchData22.data.data[0].insidetime);
+   console.log("uuuu1",fetchData22.data.data[0].outsidetime);
 
     }
        }
@@ -451,14 +445,14 @@ const Card1 = (props) => {
       if ( state.pid3 && getcurringtime31 && getcurringtime32 && getcurringtime33  ) {
 
         const curringinfo3 = await fetch(
-      `http://localhost:5433/pressAlldetailRouter/getcurringfinaltime/${state.pid3}/${getcurringtime31}/${getcurringtime32}/${getcurringtime33}`
+      `http://localhost:5433/pressAlldetailRouter/getcurringfinaltime/${state.pid3}/${getcurringtime32}/${getcurringtime33}/${getcurringtime31}`
     );
 
         const fetchData23= await curringinfo3.json();
 
         // const insidetime3 = fetchData23.data.data[0].insidetime;
         // const outtime3 = fetchData23.data.data[0].outsidetime;
-     setInsidetime3(fetchData23.data.data[0].insidetime);
+    setInsidetime3(fetchData23.data.data[0].insidetime);
     setOuttime3(fetchData23.data.data[0].outsidetime);
     console.log("hhhhhh setInsidetime3",fetchData23.data.data[0].insidetime);
     console.log("hhhhh setOuttime3",fetchData23.data.data[0].outsidetime);
@@ -476,18 +470,18 @@ const Card1 = (props) => {
 
       const getcurringtime41 = fetchData8.data.data[0].sizebasicid;
       const getcurringtime42 = fetchData8.data.data[0].lugtypeid;
-      const getcurringtime43 = fetchData8.data.data[0].lugtypeid;
+      const getcurringtime43 = fetchData8.data.data[0].tcat;
       
       // setGetcurringtime41(fetchData8.data.data[0].sizebasicid);
       console.log("varahi91" ,fetchData8.data.data[0].sizebasicid);
       // setGetcurringtime42(fetchData8.data.data[0].lugtypeid);
       console.log("varahi92" ,fetchData8.data.data[0].lugtypeid);
       // setGetcurringtime43(fetchData8.data.data[0].tcat);
-      console.log("varahi93" ,fetchData8.data.data[0].lugtypeid);
+      console.log("varahi93" ,fetchData8.data.data[0].tcat);
 
       if ( state.pid4 && getcurringtime41 && getcurringtime42 && getcurringtime43  ) {
         const curringinfo4 = await fetch(
-        `http://localhost:5433/pressAlldetailRouter/getcurringfinaltime/${state.pid4}/${getcurringtime41}/${getcurringtime42}/${getcurringtime43}`
+        `http://localhost:5433/pressAlldetailRouter/getcurringfinaltime/${state.pid4}/${getcurringtime42}/${getcurringtime43}/${getcurringtime41}`
       );
   
       const fetchData24= await curringinfo4.json();
@@ -501,8 +495,7 @@ const Card1 = (props) => {
       console.log("varahi22",fetchData24.data.data[0].outsidetime);
 
       }
-
-      }
+}
      
      
     } catch (err) {
@@ -512,25 +505,10 @@ const Card1 = (props) => {
     currtime();
     
   };
-  setEndtime(state.starttime + finaltime1 + finaltime2 + finaltime3 + finaltime4) ;
-  // get final curringtime
-  // const getcurringtime = async () => {
-  //   console.log("hhhhhh currtime id", getcurringtime11, getcurringtime12, getcurringtime13);
+  // setEndtime(state.starttime + finaltime1 + finaltime2 + finaltime3 + finaltime4) ;
+  
 
-  //   // pid1 things
-  //   try {
-    
-  //      // pid2 things
-      
-  //      // pid 3 things
-  //     // pid 4 things 
-  //   } catch (err) {
-  //     console.error(err.message);
-  //   }
-  // };
-
-  // const[pressnameid,setPressnameid]=useState("");
-  // setPressnameid(props.data1)
+  
 
   // put press detail- starttime,pressid,pid1,pid2,pid3,pid4,pid5
   const Putpressdetail = async (e) => {
@@ -565,52 +543,53 @@ const Card1 = (props) => {
     
   }
  
-  const totaltime1 = insidetime1 + outtime1 + 30 ;
-      console.log(totaltime1, "hhhhhhh totaltime1");
-
-  console.log(insidetime2, outtime2);
+  const totaltime1 = (insidetime1 + outtime1 + 30);
+   console.log(totaltime1, " totaltime1");
+      
   const totaltime2 = insidetime2 + outtime2 + 30;
-  console.log(totaltime2, "hhhhhhh totaltime2");
+  console.log(totaltime2, " totaltime2");
 
   const totaltime3 = insidetime3 + outtime3 + 30;
-  console.log(totaltime3,"hhhhh totaltime3")
+  console.log(totaltime3," totaltime3")
 
   const totaltime4 = insidetime4 + outtime4 + 30;
-  console.log(totaltime4,"hhhhh totaltime4")
+  console.log(totaltime4,"totaltime4")
 
    
-  const maxtotalhour1 = totaltime1/60
-  console.log(maxtotalhour1,"hhhhhhh maxtotal ");
+  const maxtotalhour1 = (totaltime1/60);
+  console.log(maxtotalhour1," maxtotal1 ");
   
-  const maxtotalhour2= (totaltime2/60)
-  console.log(maxtotalhour2,"hhhhhhh maxtotal ");
+  const maxtotalhour2= totaltime2/60
+  console.log(maxtotalhour2," maxtotal2 ");
 
   const maxtotalhour3 = (totaltime3/60)
-  console.log(maxtotalhour3,"hhhhhhh maxtotal ");
+  console.log(maxtotalhour3,"maxtotal3 ");
 
   const maxtotalhour4 = (totaltime4/60)
-  console.log(maxtotalhour4,"hhhhhhh maxtotal ");
+  console.log(maxtotalhour4," maxtotal4 ");
 
   const currtime =()=>{
+    console.log(maxtotalhour1,"totalllll")
+    console.log(maxtotalhour2,"totalllll")
+
     if(maxtotalhour1 > maxtotalhour2 && maxtotalhour1 > maxtotalhour3 && maxtotalhour1 > maxtotalhour4){
       setFinaltime1(maxtotalhour1)
+      console.log(finaltime1, "win1")
     }
     else if(maxtotalhour2 > maxtotalhour1 && maxtotalhour2 > maxtotalhour3 && maxtotalhour2 > maxtotalhour4){
       setFinaltime2(maxtotalhour2)
+      console.log(finaltime2, "win2")
     }
     else if(maxtotalhour3 > maxtotalhour1 && maxtotalhour3 > maxtotalhour2 && maxtotalhour3 > maxtotalhour4){
       setFinaltime3(maxtotalhour3)
+      console.log(finaltime3, "win3")
     }
     else{
       setFinaltime4(maxtotalhour4)
-    }
-    
+      console.log(finaltime4, "win4")
+    }  
   }
 
-  
-
-  console.log("helo  getmoldno1", getmoldno1);
-  console.log("endtime" ,endtime)
 
   return (
     <div>
